@@ -13,7 +13,13 @@ app.use("/api/categories", categoryRoutes);
 app.use("/api/products", productRoutes);
 app.use("/api/customers", customerRoutes);
 
-const port = process.env.PORT || 3000;
-app.listen(port, () => {
-console.log(`Server running on port ${port}`);
-});
+export default app;
+
+// Start the HTTP server only when running locally.
+// On Vercel the exported app is used as a serverless function.
+if (process.env.VERCEL !== "1") {
+    const port = process.env.PORT || 3000;
+    app.listen(port, () => {
+        console.log(`Server running on port ${port}`);
+    });
+}
