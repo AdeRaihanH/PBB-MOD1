@@ -1,10 +1,10 @@
-import { SupplierModel } from "../models/supplierModel.js";
+import { MemberModel } from "../models/memberModel.js";
 
-export const SupplierController = {
+export const MemberController = {
   async getAll(req, res) {
     try {
-      const suppliers = await SupplierModel.getAll();
-      res.json(suppliers);
+      const members = await MemberModel.getAll();
+      res.json(members);
     } catch (err) {
       res.status(500).json({ error: err.message });
     }
@@ -12,8 +12,8 @@ export const SupplierController = {
 
   async getById(req, res) {
     try {
-      const supplier = await SupplierModel.getById(req.params.id);
-      res.json(supplier);
+      const member = await MemberModel.getById(req.params.id);
+      res.json(member);
     } catch (err) {
       res.status(404).json({ error: err.message });
     }
@@ -21,8 +21,8 @@ export const SupplierController = {
 
   async create(req, res) {
     try {
-      const supplier = await SupplierModel.create(req.body);
-      res.status(201).json(supplier);
+      const member = await MemberModel.create(req.body);
+      res.status(201).json(member);
     } catch (err) {
       res.status(400).json({ error: err.message });
     }
@@ -30,8 +30,8 @@ export const SupplierController = {
 
   async update(req, res) {
     try {
-      const supplier = await SupplierModel.update(req.params.id, req.body);
-      res.json(supplier);
+      const member = await MemberModel.update(req.params.id, req.body);
+      res.json(member);
     } catch (err) {
       res.status(400).json({ error: err.message });
     }
@@ -39,8 +39,8 @@ export const SupplierController = {
 
   async remove(req, res) {
     try {
-      await SupplierModel.remove(req.params.id);
-      res.json({ message: "Deleted successfully" });
+      await MemberModel.remove(req.params.id);
+      res.json({ message: "Member deleted successfully" });
     } catch (err) {
       res.status(400).json({ error: err.message });
     }

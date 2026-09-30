@@ -1,10 +1,11 @@
-import { MedicationModel } from "../models/medicationModel.js";
+import { LoanModel } from "../models/loanModel.js";
 
-export const MedicationController = {
+export const LoanController = {
   async getAll(req, res) {
     try {
-      const meds = await MedicationModel.getAll();
-      res.json(meds);
+      const { status, member_id } = req.query;
+      const loans = await LoanModel.getAll({ status, member_id });
+      res.json(loans);
     } catch (err) {
       res.status(500).json({ error: err.message });
     }
@@ -12,8 +13,8 @@ export const MedicationController = {
 
   async getById(req, res) {
     try {
-      const med = await MedicationModel.getById(req.params.id);
-      res.json(med);
+      const loan = await LoanModel.getById(req.params.id);
+      res.json(loan);
     } catch (err) {
       res.status(404).json({ error: err.message });
     }
@@ -21,8 +22,8 @@ export const MedicationController = {
 
   async create(req, res) {
     try {
-      const med = await MedicationModel.create(req.body);
-      res.status(201).json(med);
+      const loan = await LoanModel.create(req.body);
+      res.status(201).json(loan);
     } catch (err) {
       res.status(400).json({ error: err.message });
     }
@@ -30,8 +31,8 @@ export const MedicationController = {
 
   async update(req, res) {
     try {
-      const med = await MedicationModel.update(req.params.id, req.body);
-      res.json(med);
+      const loan = await LoanModel.update(req.params.id, req.body);
+      res.json(loan);
     } catch (err) {
       res.status(400).json({ error: err.message });
     }
@@ -39,8 +40,8 @@ export const MedicationController = {
 
   async remove(req, res) {
     try {
-      await MedicationModel.remove(req.params.id);
-      res.json({ message: "Deleted successfully" });
+      await LoanModel.remove(req.params.id);
+      res.json({ message: "Loan deleted successfully" });
     } catch (err) {
       res.status(400).json({ error: err.message });
     }

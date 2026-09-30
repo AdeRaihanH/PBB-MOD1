@@ -1,30 +1,21 @@
 import express from "express";
 import dotenv from "dotenv";
-import medicationRoutes from "./routes/medicationRoutes.js";
-import categoryRoutes from "./routes/categoryRoutes.js";
-import supplierRoutes from "./routes/supplierRoutes.js";
+import memberRoutes from "./routes/memberRoutes.js";
+import bookRoutes from "./routes/bookRoutes.js";
+import loanRoutes from "./routes/loanRoutes.js";
 
 dotenv.config();
 
 const app = express();
 app.use(express.json());
 
-// routes
-app.use("/api/suppliers", supplierRoutes);
-app.use("/api/categories", categoryRoutes);
-app.use("/api/medications", medicationRoutes);
+app.use("/api/members", memberRoutes);
+app.use("/api/books", bookRoutes);
+app.use("/api/loans", loanRoutes);
 
-app.get("/", (req, res) => {
-  res.json({ message: "Medication API is running" });
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
 });
 
 export default app;
-
-// Start the HTTP server only when running locally.
-// On Vercel the exported app is used as a serverless function.
-if (process.env.VERCEL !== "1") {
-  const port = process.env.PORT || 3000;
-  app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
-  });
-}

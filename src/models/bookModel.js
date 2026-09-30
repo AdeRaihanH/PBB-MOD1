@@ -1,15 +1,15 @@
 import { supabase } from "../config/supabaseClient.js";
 
-export const SupplierModel = {
+export const BookModel = {
   async getAll() {
-    const { data, error } = await supabase.from("suppliers").select("*");
+    const { data, error } = await supabase.from("books").select("*");
     if (error) throw error;
     return data;
   },
 
   async getById(id) {
     const { data, error } = await supabase
-      .from("suppliers")
+      .from("books")
       .select("*")
       .eq("id", id)
       .single();
@@ -17,20 +17,20 @@ export const SupplierModel = {
     return data;
   },
 
-  async create(supplier) {
+  async create(book) {
     const { data, error } = await supabase
-      .from("suppliers")
-      .insert([supplier])
+      .from("books")
+      .insert([book])
       .select()
       .single();
     if (error) throw error;
     return data;
   },
 
-  async update(id, supplier) {
+  async update(id, book) {
     const { data, error } = await supabase
-      .from("suppliers")
-      .update(supplier)
+      .from("books")
+      .update(book)
       .eq("id", id)
       .select()
       .single();
@@ -39,8 +39,8 @@ export const SupplierModel = {
   },
 
   async remove(id) {
-    const { error } = await supabase.from("suppliers").delete().eq("id", id);
+    const { error } = await supabase.from("books").delete().eq("id", id);
     if (error) throw error;
-    return { message: "Deleted successfully" };
+    return { message: "Book deleted successfully" };
   },
 };
