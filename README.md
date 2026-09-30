@@ -1,6 +1,8 @@
 # Library Loan API - Peminjaman Buku Perpustakaan
 
-Proyek ini adalah RESTful API sederhana untuk layanan **pencatatan peminjaman buku perpustakaan**. API dibangun menggunakan **Node.js**, **Express.js**, dan **Supabase** (PostgreSQL), serta dapat dideploy ke **Vercel**. Proyek ini merupakan bagian dari responsi Praktikum Pemrograman Perangkat Bergerak (PPB).
+Proyek ini adalah RESTful API sederhana untuk layanan **pencatatan peminjaman buku perpustakaan**. API dibangun menggunakan **Node.js**, **Express.js**, dan **Supabase** (PostgreSQL), serta dideploy ke **Vercel**. Proyek ini merupakan bagian dari responsi Praktikum Pemrograman Perangkat Bergerak (PPB).
+
+> **Link deployment Vercel:** https://pbb-mod-1-kel16-responsi.vercel.app/
 
 ## Deskripsi Umum & Tujuan
 
@@ -79,10 +81,10 @@ Request:
 
 ```json
 {
-  "name": "Budi Santoso",
-  "email": "budi@example.com",
-  "phone": "081234567890",
-  "address": "Jl. Merdeka No. 1"
+  "name": "Ade Raihan Hanafi",
+  "email": "aderaihanh@students.undip.ac.id",
+  "phone": "081393055199",
+  "address": "Tembalang"
 }
 ```
 
@@ -90,11 +92,11 @@ Response (201):
 
 ```json
 {
-  "id": "a1b2c3d4-0000-1111-2222-333344445555",
-  "name": "Budi Santoso",
-  "email": "budi@example.com",
-  "phone": "081234567890",
-  "address": "Jl. Merdeka No. 1"
+  "id": "971721a3-b48d-4f89-9824-5cc287fcec5e",
+  "name": "Ade Raihan Hanafi",
+  "email": "aderaihanh@students.undip.ac.id",
+  "phone": "081393055199",
+  "address": "Tembalang"
 }
 ```
 
@@ -104,9 +106,9 @@ Request:
 
 ```json
 {
-  "isbn": "978-602-03-1234-5",
-  "title": "Pemrograman Web",
-  "author": "John Doe",
+  "isbn": "978-602-03-1234-6",
+  "title": "Belajar Praktikum PPB",
+  "author": "Are",
   "publisher": "Gramedia",
   "year": 2020,
   "stock": 5
@@ -117,10 +119,10 @@ Response (201):
 
 ```json
 {
-  "id": "b2c3d4e5-1111-2222-3333-444455556666",
-  "isbn": "978-602-03-1234-5",
-  "title": "Pemrograman Web",
-  "author": "John Doe",
+  "id": "fd8b9d2b-7617-4018-af1e-4efeab8ca7f8",
+  "isbn": "978-602-03-1234-6",
+  "title": "Belajar Praktikum PPB",
+  "author": "Are",
   "publisher": "Gramedia",
   "year": 2020,
   "stock": 5
@@ -133,8 +135,8 @@ Request:
 
 ```json
 {
-  "member_id": "a1b2c3d4-0000-1111-2222-333344445555",
-  "book_id": "b2c3d4e5-1111-2222-3333-444455556666",
+  "member_id": "971721a3-b48d-4f89-9824-5cc287fcec5e",
+  "book_id": "fd8b9d2b-7617-4018-af1e-4efeab8ca7f8",
   "loan_date": "2024-05-01",
   "due_date": "2024-05-08",
   "status": "Dipinjam"
@@ -145,9 +147,9 @@ Response (201):
 
 ```json
 {
-  "id": "c3d4e5f6-2222-3333-4444-555566667777",
-  "member_id": "a1b2c3d4-0000-1111-2222-333344445555",
-  "book_id": "b2c3d4e5-1111-2222-3333-444455556666",
+  "id": "efd04a0e-d97c-4159-820b-f52b5db8c6ae",
+  "member_id": "971721a3-b48d-4f89-9824-5cc287fcec5e",
+  "book_id": "fd8b9d2b-7617-4018-af1e-4efeab8ca7f8",
   "loan_date": "2024-05-01",
   "due_date": "2024-05-08",
   "return_date": null,
@@ -162,13 +164,22 @@ Response (200):
 ```json
 [
   {
-    "id": "c3d4e5f6-2222-3333-4444-555566667777",
+    "id": "efd04a0e-d97c-4159-820b-f52b5db8c6ae",
     "loan_date": "2024-05-01",
     "due_date": "2024-05-08",
     "return_date": null,
     "status": "Dipinjam",
-    "members": { "id": "a1b2c3d4-0000-1111-2222-333344445555", "name": "Budi Santoso" },
-    "books": { "id": "b2c3d4e5-1111-2222-3333-444455556666", "title": "Pemrograman Web" }
+    "members": { "id": "971721a3-b48d-4f89-9824-5cc287fcec5e", "name": "Ade Raihan Hanafi" },
+    "books": { "id": "fd8b9d2b-7617-4018-af1e-4efeab8ca7f8", "title": "Belajar Praktikum PPB" }
+  },
+  {
+    "id": "a7c8cc1a-eb63-4a56-bad7-d69d605793ce",
+    "loan_date": "2024-04-20",
+    "due_date": "2024-04-27",
+    "return_date": null,
+    "status": "Terlambat",
+    "members": { "id": "971721a3-b48d-4f89-9824-5cc287fcec5e", "name": "Ade Raihan Hanafi" },
+    "books": { "id": "41fcbcb4-b139-4d47-882d-95b69687fd93", "title": "Cara Menjadi Hacker" }
   }
 ]
 ```
@@ -180,13 +191,13 @@ Response (200):
 ```json
 [
   {
-    "id": "d4e5f6a7-3333-4444-5555-666677778888",
+    "id": "a7c8cc1a-eb63-4a56-bad7-d69d605793ce",
     "loan_date": "2024-04-20",
     "due_date": "2024-04-27",
     "return_date": null,
     "status": "Terlambat",
-    "members": { "id": "a1b2c3d4-0000-1111-2222-333344445555", "name": "Budi Santoso" },
-    "books": { "id": "b2c3d4e5-1111-2222-3333-444455556666", "title": "Pemrograman Web" }
+    "members": { "id": "971721a3-b48d-4f89-9824-5cc287fcec5e", "name": "Ade Raihan Hanafi" },
+    "books": { "id": "41fcbcb4-b139-4d47-882d-95b69687fd93", "title": "Cara Menjadi Hacker" }
   }
 ]
 ```
@@ -206,13 +217,23 @@ Response (200):
 
 ```json
 {
-  "id": "c3d4e5f6-2222-3333-4444-555566667777",
-  "member_id": "a1b2c3d4-0000-1111-2222-333344445555",
-  "book_id": "b2c3d4e5-1111-2222-3333-444455556666",
+  "id": "efd04a0e-d97c-4159-820b-f52b5db8c6ae",
+  "member_id": "971721a3-b48d-4f89-9824-5cc287fcec5e",
+  "book_id": "fd8b9d2b-7617-4018-af1e-4efeab8ca7f8",
   "loan_date": "2024-05-01",
   "due_date": "2024-05-08",
   "return_date": "2024-05-10",
   "status": "Dikembalikan"
+}
+```
+
+### 7. Menghapus Peminjaman — `DELETE /api/loans/:id`
+
+Response (200):
+
+```json
+{
+  "message": "Loan deleted successfully"
 }
 ```
 
@@ -272,6 +293,6 @@ Response (200):
 3. Tambahkan environment variables `SUPABASE_URL` dan `SUPABASE_KEY` di pengaturan proyek Vercel.
 4. Deploy.
 
-**Link hasil deployment:** https://<nama-proyek-anda>.vercel.app
+**Link hasil deployment:** https://pbb-mod-1-kel16-responsi.vercel.app/
 
-_(Ganti dengan URL deployment Vercel Anda setelah berhasil deploy.)_
+**Base URL (untuk pengujian Postman):** `https://pbb-mod-1-kel16-responsi.vercel.app`
