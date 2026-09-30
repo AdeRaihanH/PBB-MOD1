@@ -2,7 +2,7 @@
   "name": "sale-api-pbbmod1",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -11,15 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AdeRaihanH/Sale-API-PBB.git"
+    "url": "git+https://github.com/AdeRaihanH/PBB-MOD1.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/AdeRaihanH/Sale-API-PBB/issues"
+    "url": "https://github.com/AdeRaihanH/PBB-MOD1/issues"
   },
-  "homepage": "https://github.com/AdeRaihanH/Sale-API-PBB#readme",
+  "homepage": "https://github.com/AdeRaihanH/PBB-MOD1#readme",
   "dependencies": {
     "@supabase/supabase-js": "^2.117.2",
     "dotenv": "^18.0.5",

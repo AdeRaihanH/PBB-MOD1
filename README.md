@@ -229,8 +229,8 @@ Response (200):
 1. **Clone repositori**
 
    ```bash
-   git clone https://github.com/AdeRaihanH/Sale-API-PBB.git
-   cd Sale-API-PBB
+   git clone https://github.com/AdeRaihanH/PBB-MOD1.git
+   cd PBB-MOD1
    ```
 
 2. **Instal dependensi**
